@@ -1,0 +1,14 @@
+.container {
+    display:flex;
+    align-items: center; 
+    cursor: pointer;
+}
+.author {
+    margin-left: 5px;
+    min-width: 50px;
+    
+}
+
+.comment_text {
+    margin-left: 10px;
+}

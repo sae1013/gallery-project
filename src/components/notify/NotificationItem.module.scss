@@ -1,0 +1,33 @@
+
+.item_container{
+    
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px;
+    box-shadow: 0 0 20px silver;
+    margin-bottom: 10px;
+    height:100px;
+    display: flex;
+    align-items: center;
+    
+    p {
+        margin-left: 20px;
+    }
+
+}
+
+.contents{
+    p:nth-child(2){
+        width:300px;
+        overflow:hidden; 
+        text-overflow:ellipsis;
+        white-space:nowrap;
+
+
+
+    }
+}
+
+.active {
+    background-color: rgba(209, 209, 19, 0.575);
+}

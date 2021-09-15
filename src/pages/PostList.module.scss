@@ -1,0 +1,19 @@
+.container_center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:100vh;
+}
+
+.container { 
+    background-color:#ECEFF3;
+    margin: 0 50px;
+    padding-top: 10px;
+    
+    @media screen and (min-width:1024px){ //1024px부터 적용
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 50px;
+        
+    }
+}

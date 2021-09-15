@@ -1,0 +1,65 @@
+.container {
+    width:100%;
+}
+.card { 
+    margin: 25px auto;
+    
+    padding: 10px 20px;
+    background: white;
+    overflow: hidden;
+    border-radius: 25px;
+    min-width:400px;
+
+    @media screen and (max-width:1023px){ // 핸드폰/태블릿
+        width:600px;
+    }
+    @media screen and (min-width:1024px) { //데스크톱
+        width:400px;
+    }
+
+}
+
+.post_header {
+    display: flex;
+    align-items: center;
+    
+    p {
+        color:#222831;
+        font-size:14px;
+        font-weight: 600;
+    }
+}
+
+.post_user {
+    margin-left: 30px;
+}
+.post_date {
+    margin-left: 40px;
+}
+
+.post_activate {
+    margin-left: 40px;
+    display: flex;
+    @media screen and (min-width:1024px) { 
+        display:block;
+        margin-left:0;       
+    }
+    > div {
+        margin-right: 10px;
+        @media screen and (min-width:1024px) { 
+            margin-right:0;
+            width:80px;
+        }
+    }
+    
+    
+}
+
+.post_contents {
+    padding:16px;   
+}
+
+.post_comments {
+    padding: 16px;
+}
+

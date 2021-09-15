@@ -1,0 +1,35 @@
+.header {
+    min-height:80px;
+    width:100%;
+    // max-width:1024px;
+    position:fixed;
+    z-index: 100;
+    display:flex;
+    justify-content: flex-end;
+    top:0;
+    left:0;
+    background-color:white;
+    overflow: hidden;
+
+    button {
+        margin-left:10px;
+        border:none;
+        outline:none;
+        padding: 10px 15px;
+        background-color: aliceblue;
+        transition: all .3s;
+        
+        &:hover {
+            // background-color: black;
+        
+            color:black;
+            cursor: pointer;
+            transform: scale(1.2)
+        }
+        
+    }
+    
+    button:nth-child(2) {
+        margin-right: 30px;
+    }
+}
