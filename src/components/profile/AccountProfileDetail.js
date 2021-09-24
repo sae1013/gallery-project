@@ -12,14 +12,14 @@ import {
 import FileUpload from "../post/FileUpload";
 import { editProfileFB } from "../../shared/api/Auth";
 import { useHistory } from "react-router-dom";
-import {useDispatch} from 'react-redux';
+import { useDispatch } from "react-redux";
 
 const AccountProfileDetail = (props) => {
   const history = useHistory();
   const [values, setValues] = useState(props.user);
   const [profileImage, setProfileImage] = useState(null);
   const dispatch = useDispatch();
-  const [isSubmitting,setIsSubmitting] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const setImageHandler = (imageUrl) => {
     setProfileImage(imageUrl);
@@ -27,18 +27,15 @@ const AccountProfileDetail = (props) => {
 
   const submitHandler = () => {
     setIsSubmitting(true);
-    setTimeout(()=>{
+    setTimeout(() => {
       setIsSubmitting(false);
-    },1000)
-    if (
-      values.nickname === props.user.nickname &&
-      !profileImage 
-    ) {
+    }, 1000);
+    if (values.nickname === props.user.nickname && !profileImage) {
       window.alert("변경사항이 없습니다.");
-      return
+      return;
     }
     if (values.nickname) {
-      dispatch(editProfileFB(values.nickname,profileImage));
+      dispatch(editProfileFB(values.nickname, profileImage));
     }
   };
 
@@ -63,7 +60,6 @@ const AccountProfileDetail = (props) => {
               <TextField
                 fullWidth
                 helperText="Please specify the display name"
-                // label="display name"
                 name="nickname"
                 onChange={handleChange}
                 required
@@ -81,7 +77,12 @@ const AccountProfileDetail = (props) => {
             p: 2,
           }}
         >
-          <Button color="primary" variant="contained" onClick={submitHandler} disabled={isSubmitting}>
+          <Button
+            color="primary"
+            variant="contained"
+            onClick={submitHandler}
+            disabled={isSubmitting}
+          >
             Save Details
           </Button>
         </Box>

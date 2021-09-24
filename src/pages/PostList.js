@@ -35,7 +35,7 @@ function PostList(props) {
   if (!isLoading && !isFirstLoaded) {
     content = <div>데이터 요청 전입니다.</div>;
   } else if (isLoading && !isFirstLoaded) {
-    // 첫번째 데이터가 로딩 될때만 스피너를 렌더링합니다.
+    
     content = (
       <div className={classes.container_center}>
         <Spinner shape="syncLoader" />

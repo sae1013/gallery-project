@@ -24,7 +24,7 @@ const postSlice = createSlice({
     initialState:initialState,
     reducers:{
         setPost(state,action){  
-            state.list.push(...action.payload.postList); // 기존 state에 새로운 postList를 붙여준다.
+            state.list.push(...action.payload.postList); 
             const purePostList = state.list.reduce((acc,cur)=>{  // 중복제거
                 if(acc.findIndex((p)=>p.postId === cur.postId) === -1){ 
                     return [...acc, cur]
@@ -39,7 +39,7 @@ const postSlice = createSlice({
             state.isFirstLoaded = true 
         },
 
-        addPost(state,action){ //포스트 1개를 추가
+        addPost(state,action){ 
             state.list.unshift(action.payload)
         },
 
@@ -47,8 +47,8 @@ const postSlice = createSlice({
 
             const index = state.list.findIndex((post)=> post.postId === action.payload.postId);
             if(index != -1){
-                const post = state.list[index] // 기존포스트 찾아옴.
-                state.list[index] = {...post, ...action.payload.editObject}; //기존 postobject 덮어쓰기.
+                const post = state.list[index] 
+                state.list[index] = {...post, ...action.payload.editObject}; 
             }
         },
 

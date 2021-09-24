@@ -34,4 +34,4 @@ function NotificationItem(props) {
     )
 }
 
-export default NotificationItem
+export default React.memo(NotificationItem)

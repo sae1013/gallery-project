@@ -8,9 +8,7 @@ const getCookie = (key) => {
 
 const setCookie = (key, value, exp = 5) => {
   let date = new Date();
-
   date.setTime(date.getTime() + exp * 24 * 60 * 60 * 1000);
-
   document.cookie = `${key}=${value};expires=${date.toUTCString()};path=/`;
 };
 

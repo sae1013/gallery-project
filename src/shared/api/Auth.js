@@ -20,20 +20,19 @@ const signupFB = (signupFormUser, formikActions) => {
 
         if (user != null) {
           //유저를 먼저 가입시키고, 닉네임과 사진을 저장한다.
-          user
-            .updateProfile({
+          user.updateProfile({
               displayName: nickname,
               photoURL: profileURL,
             })
             .then(() => {
-              dispatch(
+              dispatch( //로그인 유저 리덕스에 저장
                 userActions.setUser({
                   email,
                   nickname,
                   profileURL: profileURL,
                   userId: user.uid,
-                })
-              );
+                }));
+              console.log('유저가입완료');
               history.push("/");
             })
             .catch((err) => {
@@ -77,7 +76,7 @@ const loginFB = (email, password, formikActions) => {
       })
 
       .catch((error) => {
-        // Handle Errors here.
+        
         var errorCode = error.code;
         var errorMessage = error.message;
         window.alert("인증이 실패하였습니다.");
@@ -128,7 +127,7 @@ const editProfileFB = (nickname, profileImage) => {
     const currentUser = firebase.auth().currentUser;
     const storedUser = getState().user.user;
 
-    if (profileImage) { // 이미지처리먼저해야함.
+    if (profileImage) { // 이미지처리 선행
       const uploadImage = storage
         .ref(`images/${getState().user.user.userId}_${new Date().getTime()}`)
         .putString(profileImage, "data_url");

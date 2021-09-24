@@ -1,4 +1,5 @@
 import React,{useState,useEffect} from 'react'
+import {useHistory} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 import {realtimeDB} from '../shared/firebase';
 import classes from './NotificationList.module.scss'
@@ -7,10 +8,11 @@ import NotificationItem from '../components/notify/NotificationItem';
 function NotificationList() {
     const loginUser = useSelector(state => state.user.user?.userId);
     const [notiList,setNotiList] = useState([]); 
+    const history = useHistory();
 
     useEffect(()=>{
         if(!loginUser){
-            return
+            history.push('/login')
         }
         
         const notiListRef = realtimeDB.ref(`/noti/${loginUser}/list`).orderByChild('insertDate');
@@ -26,12 +28,18 @@ function NotificationList() {
         });
 
     },[loginUser]);
-
+    
+    let emptyContent = (
+        <div className={classes.emptyContainer}>
+            <p className={classes.emptyHeader}>새로운 알람이 없습니다!</p>
+        </div>
+    )
     return (
         <div className={classes.container}>
-            {notiList.map((item)=>{
+            {notiList.length>0 ? notiList.map((item)=>{
                 return <NotificationItem key = {item.notiId} notiItem ={item}/>
-            })}
+            }): null}
+            {notiList.length===0? emptyContent: null}
         </div>
     )
 }

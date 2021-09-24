@@ -9,9 +9,7 @@ import classes from './Post.module.scss';
 
 
 function Post({item}) {
-    React.useEffect(()=>{
-        console.log('렌더링')
-    })
+    
     const history = useHistory();
     const dispatch = useDispatch();
 
@@ -38,7 +36,7 @@ function Post({item}) {
     }
 
     return (
-        <div className={classes.container}>
+        <div className={classes.container}> 
             <div className={classes.card} onClick={postClickHandler}>
                 <div className={classes.post_header}> 
                     <Image src={item.userInfo.userProfile}/>

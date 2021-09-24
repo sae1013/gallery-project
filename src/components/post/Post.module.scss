@@ -40,10 +40,12 @@
 .post_activate {
     margin-left: 40px;
     display: flex;
+
     @media screen and (min-width:1024px) { 
         display:block;
         margin-left:0;       
     }
+    
     > div {
         margin-right: 10px;
         @media screen and (min-width:1024px) { 

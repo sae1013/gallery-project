@@ -16,4 +16,4 @@ function CommentItem({comment}) {
     )
 }
 
-export default CommentItem
+export default React.memo(CommentItem)

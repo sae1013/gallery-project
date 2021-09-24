@@ -30,7 +30,7 @@ const Image = (props) => {
 
 Image.defaultProps = {
   shape: "circle",
-  src: "https://mean0images.s3.ap-northeast-2.amazonaws.com/4.jpeg",
+  src: "",
   size: 36,
 };
 
@@ -39,7 +39,9 @@ const FixedImage = styled.div`
     height:${props=>props.height};
     background-image: url(${(props) => props.src});
     overflow: hidden;
-    background-size: contain;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 `;
 
 const AspectOutter = styled.div`
@@ -53,7 +55,9 @@ const AspectInner = styled.div`
     padding-top: 75%;
     overflow: hidden;
     background-image: url("${(props) => props.src}");
-    background-size: contain;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 `;
 
 const ImageCircle = styled.div`
@@ -63,7 +67,9 @@ const ImageCircle = styled.div`
     border-radius: var(--size);
 
     background-image: url("${(props) => props.src}");
-    background-size: contain;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     margin: 4px;
 `;
 

@@ -11,7 +11,7 @@ const commentSlice = createSlice({
     name:'comment',
     initialState:initialState,
     reducers:{
-        setComment(state,action){ //payload: {postId ,commentList}
+        setComment(state,action){ 
             state.list[action.payload.postId] = action.payload.commentList;
         },
 

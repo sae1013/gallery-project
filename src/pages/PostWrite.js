@@ -15,9 +15,9 @@ function PostWrite({history}) {
     const dispatch = useDispatch();
     const params = useParams();
     const isLogin = useSelector(state=> state.user.isLogin);
-    const isLoginLoading = useSelector(state =>state.user.isLoading); // 로그인 검증중일때.
+    const isLoginLoading = useSelector(state =>state.user.isLoading); // 로그인 중일때 flag
     const postIsLoading = useSelector(state=> state.post.isLoading);
-    const [previewImg,setPreviewImg] = useState(null); // 이미지 URL state 임. 만약에 수정모드로 들어오면 파이어베이스에서 읽은거를 state로 지정해주어야함.
+    const [previewImg,setPreviewImg] = useState(null); 
     const [text,setText] = useState('');
     const textAreaRef = useRef();
     
@@ -85,7 +85,7 @@ function PostWrite({history}) {
                 <div className={classes.text_content}>
                     <p>게시글 내용</p>
                     <textarea ref={textAreaRef} value={text} onChange ={textAreaOnChange}></textarea>
-                    {!postIsLoading && !params.id? <Button onClick={submitHandler} width={'100%'} fontSize='15px'>게시글 작성</Button> :
+                    {!postIsLoading && !params.id? <Button onClick={submitHandler} width='100%' fontSize='15px'>게시글 작성</Button> :
                     (!postIsLoading && params.id) ? <Button onClick={editSubmitHandler} width={'100%'} fontSize='15px'>게시글 수정</Button> 
                     :<Spinner shape='syncLoader'></Spinner>}
                 </div>    

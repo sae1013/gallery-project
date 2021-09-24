@@ -27,7 +27,7 @@ function CommentWrite(props) {
     return (
         <div className={classes.submit_section}>
                 <input placeholder='댓글 내용을 입력해주세요:)' value={text} onChange ={textChangeHandler} onKeyPress={enterSubmitHandler}></input>
-                <Button onClick={submitHandler}>작성</Button>
+                <Button margin='0 10px' onClick={submitHandler}>작성</Button>
         </div>
     )
 }

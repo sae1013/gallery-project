@@ -17,7 +17,7 @@ function PostDetail(props) {
   const dispatch = useDispatch();
   const params = useParams();
   const postList = useSelector((state) => state.post.list);
-  const postIsLoading = useSelector((state) => state.post.isLoading); // commetInsLoading 을 주고, 댓글 로드까지 끝나면 전체 데이터 표시해주기.둘중하나라도 로딩중이면 로딩스피너 그려주기.
+  const postIsLoading = useSelector((state) => state.post.isLoading); 
   const userStore = useSelector((state) => state.user);
   const loginUserEmail = userStore.user?.email;
   let post;

@@ -36,8 +36,6 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
   },
 
-  login: {},
-
   menuButton: {
     marginRight: "30px",
   },
@@ -66,7 +64,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Header(props) {
-
   const history = useHistory();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.user);
@@ -102,9 +99,7 @@ function Header(props) {
         </Button>
 
         <Button className={classes.signup} component={Link} to="/signup">
-          <Typography inherit className={classes.white}>
-            sign up
-          </Typography>
+          <Typography className={classes.white}>sign up</Typography>
         </Button>
       </Toolbar>
     </AppBar>
@@ -122,12 +117,6 @@ function Header(props) {
             Logo
           </IconButton>
 
-          {/* <Button className={classes.badge}>
-            <Badge>
-              <FavoriteIcon className={classes.favoriteIcon} />
-            </Badge>
-          </Button> */}
-
           <Button color="inherit" className={classes.badge}>
             <NotiBadge></NotiBadge>
           </Button>
@@ -140,7 +129,7 @@ function Header(props) {
             aria-controls="long-menu"
             onClick={handleClick}
           >
-            <MenuIcon  />
+            <MenuIcon />
           </IconButton>
         </Toolbar>
         <Menu
@@ -158,7 +147,9 @@ function Header(props) {
           >
             로그아웃
           </MenuItem>
-          <MenuItem component={Link} to='/profile'>내 정보</MenuItem>
+          <MenuItem component={Link} to="/profile">
+            내 정보
+          </MenuItem>
         </Menu>
       </AppBar>
     );

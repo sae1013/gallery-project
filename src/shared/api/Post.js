@@ -217,7 +217,6 @@ const deletePostFB = (postId) => {
       .delete()
       .then(() => {
         dispatch(postActions.deletePost(postId));
-        console.log("성공적으로 삭제됨");
         history.push("/");
       })
       .catch((err) => {
