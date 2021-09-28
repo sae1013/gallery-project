@@ -1,0 +1,16 @@
+.card { 
+  margin: 25px auto;
+  padding: 10px 20px;
+  background: white;
+  overflow: hidden;
+  border-radius: 25px;
+  min-width:400px;
+
+  @media screen and (max-width:1023px){ // 핸드폰/태블릿
+      width:600px;
+  }
+  @media screen and (min-width:1024px) { //데스크톱
+      width:400px;
+  }
+
+}

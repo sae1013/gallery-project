@@ -8,6 +8,7 @@ import InfinityScroll from "../shared/InfinityScroll";
 import classes from "./PostList.module.scss";
 import { useMediaQuery } from 'react-responsive'
 import { uiActions } from "../redux/modules/ui";
+import SkeletonListView from "../UI/SkeletonListView";
 
 function PostList(props) {
   const dispatch = useDispatch();
@@ -33,13 +34,17 @@ function PostList(props) {
   let content;
 
   if (!isLoading && !isFirstLoaded) {
-    content = <div>데이터 요청 전입니다.</div>;
-  } else if (isLoading && !isFirstLoaded) {
+    content = null
+  } else if (isLoading) {
     
     content = (
-      <div className={classes.container_center}>
-        <Spinner shape="syncLoader" />
+      <div className={classes.container}>
+        {postList.map((postItem) => {
+          return <Post key={postItem.postId} item={postItem}></Post>;
+        })}
+        <SkeletonListView size={fetchSize}/>
       </div>
+      
     );
   } else if (!isLoading && !postList.length && isFirstLoaded) {
     content = <div>데이터가 텅텅.....</div>;
@@ -51,7 +56,7 @@ function PostList(props) {
           return <Post key={postItem.postId} item={postItem}></Post>;
         })}
       </div>
-    );
+    ); 
   }
 
   return (

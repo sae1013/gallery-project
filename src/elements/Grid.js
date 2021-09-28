@@ -2,41 +2,31 @@ import React from "react";
 import styled from "styled-components";
 
 const Grid = (props) => {
-  const { is_flex, width, margin, padding, bg, children } = props;
-
-  const styles = {
-      is_flex: is_flex,
-      width: width,
-      margin: margin,
-      padding: padding,
-      bg: bg,
-  };
-  return (
-    <React.Fragment>
-      <GridBox {...styles}>{children}</GridBox>
-    </React.Fragment>
-  );
-};
-
-Grid.defaultProps = {
-  is_flex: false,
-  width: "100%",
-  padding: 0,
-  margin: 0,
-  bg: false,
-};
+  return <GridBox {...props}></GridBox>
+  
+}
 
 const GridBox = styled.div`
-  width: ${(props) => props.width};
-  height: 100%;
-  box-sizing: border-box;
-  padding: ${props => props.padding};
-  margin: ${props => props.margin};
-  ${(props) => (props.bg ? `background-color: ${props.bg};` : "")}
-  ${(props) =>
-    props.is_flex
-      ? `display: flex; align-items: center; justify-content: space-between; `
-      : ""}
+  background-color: ${(props)=>props.backgroundColor || 'white'};
+  width:${props => props.width || '100%'};
+  height:${props => props.height || 'auto'};
+  display: ${props => props.display || 'block'};
+  justify-content: ${props=>props.justifyContent || null};
+  align-items: ${props=>props.alignItems || null};
+  margin: ${props => props.margin || '10px'};
+  padding: ${props => props.padding || '5px'};
+  border-radius: ${props => props.borderRadius || '0px'};
+  animation : ${props => props.skeleton ? "skeleton-loading 1s linear infinite alternate":null};
+ 
+  @keyframes skeleton-loading {
+    0% {
+      background-color: hsl(200,20%,70%);
+    }
+    
+    100% {
+      background-color: hsl(200,20%,95%);
+    }
+}
 `;
 
 export default Grid;

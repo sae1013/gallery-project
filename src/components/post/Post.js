@@ -7,7 +7,6 @@ import {Grid,Image,Input,Text} from '../../elements/index';
 import Button from '../../UI/Button';
 import classes from './Post.module.scss';
 
-
 function Post({item}) {
     
     const history = useHistory();
@@ -36,16 +35,18 @@ function Post({item}) {
     }
 
     return (
+        
         <div className={classes.container}> 
             <div className={classes.card} onClick={postClickHandler}>
                 <div className={classes.post_header}> 
-                    <Image src={item.userInfo.userProfile}/>
+                        <Image src={item.userInfo.userProfile}/>
                     <p className={classes.post_user}>{item.userInfo.userNickname}</p>
                     <p className={classes.post_date}>{item.insertDate}</p>
                     <div className={classes.post_activate}>
                         {loginUserEmail === item.userInfo.userEmail ? <Button fontSize="13px" padding="5px 10px" onClick={editButtonHandler}>수정하기</Button>:null}
                         {loginUserEmail === item.userInfo.userEmail ? <Button fontSize="13px" padding="5px 10px" onClick={deleteButtonHandler}>삭제하기</Button>:null}
                     </div>
+                    
                 </div>
                 <hr></hr>        
                 <div className={classes.post_contents}>
@@ -59,7 +60,7 @@ function Post({item}) {
                 </div>
             </div>
         </div>
-    
+        
     )
 }
 
