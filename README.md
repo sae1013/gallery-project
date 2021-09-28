@@ -20,16 +20,19 @@
 
 **렌더링 개선**
 
-- usecallback, usememo, 함수형업데이트 중복렌더링 방지
+- usecallback,usememo를 통한 메모리누수, 중복렌더링 방지
 - Route에 코드 스플리팅(lazy-loading)을 적용하여 초기 렌더링속도 개선
-- 무한 스크롤 도입, 불필요한 데이터요청을 방지함으로써 서버 과부하 방지
+- 무한 스크롤 도입, 불필요한 데이터요청을 방지함으로써 서버 과부하 방지 & 렌더링속도 향상
 
 **반응형UI 적용**
 
 - 태블릿 이하 버전, 데스크톱 버전에 따라 반응형UI 개선
 - 반응형 hook 도입을 통해 화면크기에 따라 데이터 fetch갯수 최적화
   
-  
+**사용자경험 향상**
+- 로딩스피너, 스켈레톤UI를 적용하여 UX향상
+- 이미지 로드 시, 지연로딩을 통해 이미지 끊김문제 해결
+
 ## 배포
 https://gallery-hosting.web.app/
   
@@ -82,10 +85,14 @@ id:admin2@admin.com , pw:000000
 
 #### 게시글, 댓글 보기화면
 <br>
+<p align="center"><img width="550" alt="스크린샷 2021-09-28 오후 9 36 07" src="https://user-images.githubusercontent.com/63229394/135088436-a97315dd-104e-4ed4-8bc3-16cad2351312.png"></p>
+
 <p align="center"><img width="550" alt="스크린샷 2021-09-24 오후 8 01 02" src="https://user-images.githubusercontent.com/63229394/134664393-91718a39-e8aa-4202-a08a-d14413060eec.png"></p>
 
 <p align="center"><img width="550" alt="스크린샷 2021-09-24 오후 8 01 10" src="https://user-images.githubusercontent.com/63229394/134664347-d1dbe23d-8696-48b2-90f7-cdd2aad46a5f.png"></p>
+리스트를 보여주는 페이지는 데이터 로드시, 로딩스피너 대신 스켈레톤UI를 적용
 <hr>
+
 
 #### 실시간 알람 
 <br>
