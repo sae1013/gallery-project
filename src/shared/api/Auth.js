@@ -32,7 +32,7 @@ const signupFB = (signupFormUser, formikActions) => {
                   profileURL: profileURL,
                   userId: user.uid,
                 }));
-              console.log('유저가입완료');
+              
               history.push("/");
             })
             .catch((err) => {

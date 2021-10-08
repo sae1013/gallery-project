@@ -9,7 +9,7 @@ import {useDispatch,useSelector} from 'react-redux';
 import Spinner from '../../shared/InfiniteSpinner';
 
 function Comment(props) {
-    // 댓글 입력은 permit이 가능할때만..     
+         
     const dispatch = useDispatch();
     const commentIsLoading = useSelector(state => state.comment.isLoading);
     const list = useSelector(state => state.comment.list)

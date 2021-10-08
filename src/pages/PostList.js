@@ -35,8 +35,7 @@ function PostList(props) {
 
   if (!isLoading && !isFirstLoaded) {
     content = null
-  } else if (isLoading) {
-    
+  } else if (isLoading) { 
     content = (
       <div className={classes.container}>
         {postList.map((postItem) => {

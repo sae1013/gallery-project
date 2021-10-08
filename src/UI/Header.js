@@ -68,7 +68,7 @@ function Header(props) {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.user);
   const isLogin = useSelector((state) => state.user.isLogin);
-  const isLoading = useSelector((state) => state.user.isLoading); // userLogin 인증 중일때.
+  const isLoading = useSelector((state) => state.user.isLoading); // 유저인증 중 일때
   const classes = useStyles();
 
   const [anchorEl, setAnchorEl] = useState(null);
